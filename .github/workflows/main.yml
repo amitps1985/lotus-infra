@@ -1,13 +1,16 @@
 name: terraform setup
 on: 
-  pull_request:
+  push: 
     branches:
       - main
+  workflow_dispatch:
 jobs:
   terraform_init:
     name: Terraform Init
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
       - name: terrform setup
         uses: hashicorp/setup-terraform@v2.0.3
       - name: Terraform Init
