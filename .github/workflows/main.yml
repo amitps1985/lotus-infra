@@ -1,0 +1,15 @@
+name: terraform setup
+on: 
+  pull_request:
+    branches:
+      - main
+jobs:
+  terraform_init:
+    name: Terraform Init
+    runs-on: self-hosted
+    steps:
+      - name: terrform setup
+        uses: hashicorp/setup-terraform@v2.0.3
+      - name: Terraform Init
+        run: terraform init
+        
