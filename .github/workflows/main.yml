@@ -9,7 +9,7 @@ permissions:
   contents: read
 jobs:
   terraform_init:
-    name: Terraform Init
+    name: Terraform infra
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -30,4 +30,4 @@ jobs:
         run: terraform validate
       - name: Terraform Plan
         working-directory: environment/dev
-        run: terraform plan -out=tfplan
+        run: terraform plan -var-file="terraform.tfvars" -out=tfplan
