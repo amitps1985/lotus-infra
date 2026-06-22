@@ -24,10 +24,23 @@ jobs:
         uses: hashicorp/setup-terraform@v2.0.3
       - name: Terraform Init
         working-directory: environment/dev
+        
         run: terraform init
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v4
+
+      - name: Initialize TFLint
+        working-directory: environment/dev
+        run: tflint --init
+      
+      - name: Run TFLint
+        working-directory: environment/dev
+        run: tflint
+        
       - name: Terraform Validate
         working-directory: environment/dev
         run: terraform validate
+        
       - name: Terraform Plan
         working-directory: environment/dev
         run: terraform plan -var-file="terraform.tfvars" -out=tfplan
