@@ -41,6 +41,10 @@ jobs:
         working-directory: environment/dev
         run: terraform validate
         
+      - name: Run tfsec
+        uses: aquasecurity/tfsec-action@v1.0.3
+        with:
+          working_directory: environment/dev  
         
       - name: Terraform Plan
         working-directory: environment/dev
