@@ -7,10 +7,10 @@ terraform {
   }
 }
  backend "azurerm" {
-    resource_group_name  = "tappu-rg"
-    storage_account_name = "stgtataaccount0101"
-    container_name       = "tfstate"
-    key                  = "dev.terraform.tfstate"
+    resource_group_name  = "mangu-rg"
+    storage_account_name = "mangustg233001"
+    container_name       = "mangucontainer"
+    key                  = "git.terraform.tfstate"
   }
 }
 provider "azurerm" {
