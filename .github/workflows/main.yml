@@ -28,3 +28,6 @@ jobs:
       - name: Terraform Validate
         working-directory: environment/dev
         run: terraform validate
+      - name: Terraform Plan
+        working-directory: environment/dev
+        run: terraform plan -out=tfplan
